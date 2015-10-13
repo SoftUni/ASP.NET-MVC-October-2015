@@ -2,21 +2,20 @@
 @model IEnumerable<Laptop>
 <div>
     @{for (int i = 0; i < Model.Count(); i++)
-    {
-        if (i % 3 == 0)
-        {
-            @:<div class="row">
-        }
+            {
+                if (i % 3 == 0)
+                {
+                @:<div class="row">
+                }
 
-        var laptop = Model.Skip(i - 1).FirstOrDefault();
-        <div class="col-md-4">
-            <h2>@(laptop.Brand) @(laptop.Model)</h2>
-            <p>$@string.Format("{0:F2}", laptop.Price)</p>
-            <img src="@laptop.PictureUrl" alt="" />
-        </div>
-        if (i % 3 == 2)
-        {
-            @:</div>
-        }
-    }}
+                var laptop = Model.Skip(i).FirstOrDefault();
+            <div class="col-md-4">
+                <h2>@Html.ActionLink(laptop.Brand + " " + laptop.Model, "Details", "Laptops", routeValues: new { id = laptop.Id }, htmlAttributes: null)</h2>
+                <img src="@laptop.PictureUrl" alt="" />
+            </div>
+            if (i % 3 == 2)
+            {
+                @:</div>
+            }
+        }}
 </div>
