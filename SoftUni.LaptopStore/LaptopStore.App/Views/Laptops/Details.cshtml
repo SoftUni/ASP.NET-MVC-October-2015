@@ -1,0 +1,7 @@
+﻿@using LaptopStore.App.HtmlHelpers
+@using System.Globalization;
+
+@model LaptopStore.Models.Laptop
+<h2>@Model.Brand @Model.Model</h2>
+<h4>@Model.Price.ToString("C", new CultureInfo("fr-FR"))</h4>
+@Html.Image(Model.PictureUrl)

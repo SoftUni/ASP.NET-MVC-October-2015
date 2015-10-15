@@ -1,21 +1,29 @@
-﻿@using LaptopStore.Models
-@model IEnumerable<Laptop>
-<div>
-    @{for (int i = 0; i < Model.Count(); i++)
-            {
-                if (i % 3 == 0)
+﻿@model LaptopStore.App.Models.TestModel[]
+@*@using LaptopStore.Models
+    @model IEnumerable<Laptop>
+    <div>
+        @{for (int i = 0; i < Model.Count(); i++)
                 {
-                @:<div class="row">
-                }
+                    if (i % 3 == 0)
+                    {
+                    @:<div class="row">
+                    }
 
-                var laptop = Model.Skip(i).FirstOrDefault();
-            <div class="col-md-4">
-                <h2>@Html.ActionLink(laptop.Brand + " " + laptop.Model, "Details", "Laptops", routeValues: new { id = laptop.Id }, htmlAttributes: null)</h2>
-                <img src="@laptop.PictureUrl" alt="" />
-            </div>
-            if (i % 3 == 2)
-            {
-                @:</div>
-            }
-        }}
-</div>
+                    var laptop = Model.Skip(i).FirstOrDefault();
+                <div class="col-md-4">
+                    <h2>@Html.ActionLink(laptop.Brand + " " + laptop.Model, "Details", "Laptops", routeValues: new { id = laptop.Id }, htmlAttributes: null)</h2>
+                    <img src="@laptop.PictureUrl" alt="" />
+                </div>
+                if (i % 3 == 2)
+                {
+                    @:</div>
+                }
+            }}
+    </div>*@
+@{ Model[0].Address = new LaptopStore.App.Models.Address() { StreetName = "Tintyava", StreetNumber = 17 };  }
+@Html.DisplayForModel()
+@Html.LabelFor(m=>m[0].Date)
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
