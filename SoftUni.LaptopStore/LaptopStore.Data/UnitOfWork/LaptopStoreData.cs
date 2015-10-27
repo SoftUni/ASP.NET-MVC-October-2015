@@ -50,6 +50,32 @@ namespace LaptopStore.Data.UnitOfWork
             }
         }
 
+        IRepository<User> ILaptopStoreData.Users
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        IRepository<Laptop> ILaptopStoreData.Laptops
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public void SaveChanges()
         {
             this.dbContext.SaveChanges();

@@ -11,11 +11,10 @@
     {
         public ActionResult Index()
         {
-            //var context = new ApplicationDbContext();
-            //var allLaptops = context.Laptops
-            //    .OrderBy(l => l.Id);
-            //return View(allLaptops);
-            return View(new TestModel[] { new TestModel() });
+            var context = new ApplicationDbContext();
+            var allLaptops = context.Laptops
+                .OrderBy(l => l.Id);
+            return View(allLaptops);
         }
 
         public ActionResult Test(TestModel[] testModels)

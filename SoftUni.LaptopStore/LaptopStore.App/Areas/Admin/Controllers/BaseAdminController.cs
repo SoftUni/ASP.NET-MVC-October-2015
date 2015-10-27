@@ -6,11 +6,8 @@ using System.Web.Mvc;
 
 namespace LaptopStore.App.Areas.Admin.Controllers
 {
-    public class HomeController : BaseAdminController
+    [Authorize(Roles = "Admin")]
+    public abstract class BaseAdminController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
     }
 }

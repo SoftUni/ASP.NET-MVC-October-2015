@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>New notification</h2>
+@using (Ajax.BeginForm("SendNotification", "Notifications", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "results",
+    InsertionMode = InsertionMode.InsertAfter
+}))
+{
+    <label for="type" class="control-label">Type:</label>
+    <input type="text" name="type" id="type" class="form-control" />
+    <label for="notification" class="control-label">Notification:</label>
+    <input type="text" name="notification" id="notification" class="form-control" />
+    <input type="submit" value="Send" class="btn btn-primary" />
+}
+
+<div id="results"></div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
